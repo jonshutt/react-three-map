@@ -27,9 +27,11 @@ export function syncCamera(camera: PerspectiveCamera, origin: Matrix4Tuple, mapC
   camera.projectionMatrix.copy(camera.matrix).premultiply(projByView);
   camera.projectionMatrixInverse.copy(camera.projectionMatrix).invert();
 
-  camera.far = calculateFar(
-    camera.matrix.elements[10], camera.matrix.elements[14], camera.near
-  )
+  // camera.far = calculateFar(
+  //   camera.matrix.elements[10], camera.matrix.elements[14], camera.near
+  // )
+
+  camera.far = 200000
 
   camera.userData.projByView = projByView.toArray();
   camera.userData.projByViewInv = projByViewInv.toArray();
